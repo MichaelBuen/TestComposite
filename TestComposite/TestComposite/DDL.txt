@@ -1,0 +1,43 @@
+﻿create table Product
+(
+	ProductId int identity(1,1) primary key,
+	ProductName nvarchar(100) not null
+);
+
+create table Category
+(
+	CategoryId int identity(1,1) primary key,
+	CategoryName nvarchar(100) not null
+);
+
+
+create table ProductCategory
+(
+	ProductId int not null references Product(ProductId),
+	CategoryId int not null references Category(CategoryId),
+
+	CustomizedProductCategoryDescription nvarchar(200) not null,
+
+	constraint pk_ProductCategory primary key(ProductId, CategoryId)
+);
+
+
+create table Model
+(
+	ModelId int identity(1,1) primary key,
+	
+	ProductId int not null,
+	CategoryId int not null,
+
+	ModelDescription nvarchar(200) not null,
+
+	constraint fk_Model__ProductCategory foreign key(ProductId, CategoryId) references ProductCategory(ProductId, CategoryId)
+);
+
+
+
+insert into ProductCategory(ProductId, CategoryId, CustomizedProductCategoryDescription) 
+values(1, 2, 'Shoe good for winter');
+
+insert into Model(ProductId, CategoryId, ModelDescription)
+values(1, 2, 'Viking shoe');
