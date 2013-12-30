@@ -10,6 +10,7 @@ namespace TestComposite
     {
         static void Main(string[] args)
         {
+            // Tested VS integrated git commit
 
             bool testGood = true;
 
