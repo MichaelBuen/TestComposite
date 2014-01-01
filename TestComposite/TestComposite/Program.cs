@@ -32,7 +32,7 @@ namespace TestComposite
 
 
                 //var n = GoodCompositeMapping.Test.AddModel();
-                //Console.WriteLine("Id: {0}", n);
+                Console.WriteLine("Id: {0}", n);
             }
             else
             {
